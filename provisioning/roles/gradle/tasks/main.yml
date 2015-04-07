@@ -1,0 +1,8 @@
+---
+- name: install python software properties (apt-add-repository)
+  apt: pkg=python-software-properties
+- name: "Add the Gradle repository"
+  apt_repository: repo=ppa:cwchien/gradle
+- name: "install: gradle"
+  apt: pkg=gradle
+
