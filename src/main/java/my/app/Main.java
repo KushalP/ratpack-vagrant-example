@@ -8,7 +8,9 @@ public class Main {
             .handlers(chain -> chain
                 .handler("foo", ctx -> ctx.render("from the foo handler"))
                 .handler("bar", ctx -> ctx.render("from the bar handler"))
-                .handler(ctx -> ctx.render("Hello World!"))
+                .handler(ctx -> ctx.promise((f) ->
+                                    new Thread(() -> f.success("Hello World!")).start()
+                                ).then(ctx::render))
             )
         );
     }
