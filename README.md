@@ -27,5 +27,7 @@ To run the tests, run the following:
 
 ```bash
 $ vagrant up
+$ vagrant ssh
+$ cd /vagrant
 $ gradle test
 ```
